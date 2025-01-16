@@ -27,48 +27,48 @@ public class Account {
 		this.savingBalance = savingBalance;
 	}
 
-	public int setCustomerNumber(int customerNumber) {
+	public int setCustomerNumber(int customerNumber) {// Müşteri numarasını set eden metod
 		this.customerNumber = customerNumber;
 		return customerNumber;
 	}
 
-	public int getCustomerNumber() {
+	public int getCustomerNumber() {// Müşteri numarasını döndüren metod
 		return customerNumber;
 	}
 
-	public int setPinNumber(int pinNumber) {
+	public int setPinNumber(int pinNumber) {// Pin numarasını set eden metod
 		this.pinNumber = pinNumber;
 		return pinNumber;
 	}
 
-	public int getPinNumber() {
+	public int getPinNumber() {// Pin numarasını döndüren metod
 		return pinNumber;
 	}
 
-	public double getCheckingBalance() {
+	public double getCheckingBalance() {// Checking hesabının bakiyesini döndüren metod
 		return checkingBalance;
 	}
 
-	public double getSavingBalance() {
+	public double getSavingBalance() {// Savings hesabının bakiyesini döndüren metod
 		return savingBalance;
 	}
 
-	public double calcCheckingWithdraw(double amount) {
+	public double calcCheckingWithdraw(double amount) {// Checking hesabından para çekme işlemi
 		checkingBalance = (checkingBalance - amount);//amount kadar bir para çekildiğinde, mevcut bakiyeden bu miktar düşülür.
 		return checkingBalance;
 	}
 
-	public double calcSavingWithdraw(double amount) {
+	public double calcSavingWithdraw(double amount) {// Savings hesabından para çekme işlemi
 		savingBalance = (savingBalance - amount);
 		return savingBalance;
 	}
 
-	public double calcCheckingDeposit(double amount) {
+	public double calcCheckingDeposit(double amount) {// Checking hesabına para yatırma işlemi
 		checkingBalance = (checkingBalance + amount);// checking hesabına para yatırma işlemi gerçekleştiren bir setter metodudur.
 		return checkingBalance;
 	}
 
-	public double calcSavingDeposit(double amount) {
+	public double calcSavingDeposit(double amount) {// Savings hesabına para yatırma işlemi
 		savingBalance = (savingBalance + amount);
 		return savingBalance;
 	}
@@ -83,14 +83,14 @@ public class Account {
 		checkingBalance = checkingBalance + amount;
 	}
 
-	public void getCheckingWithdrawInput() {
+	public void getCheckingWithdrawInput() {// Checking hesabından para çekme işlemini kullanıcıdan almak için kullanılan metod
 		boolean end = false;
 		while (!end) {
 			try {
 				System.out.println("\nCurrent Checkings Account Balance: " + moneyFormat.format(checkingBalance));
 				System.out.print("\nAmount you want to withdraw from Checkings Account: ");
 				double amount = input.nextDouble();
-				if ((checkingBalance - amount) >= 0 && amount >= 0) {
+				if ((checkingBalance - amount) >= 0 && amount >= 0) {// Bakiyeden fazla para çekilmesini engelleme
 					calcCheckingWithdraw(amount);
 					System.out.println("\nCurrent Checkings Account Balance: " + moneyFormat.format(checkingBalance));
 					end = true;
@@ -99,19 +99,19 @@ public class Account {
 				}
 			} catch (InputMismatchException e) {
 				System.out.println("\nInvalid Choice.");
-				input.next();
+				input.next();// Yanlış veri girişi yapıldığında temizleme
 			}
 		}
 	}
 
-	public void getsavingWithdrawInput() {
+	public void getsavingWithdrawInput() {// Savings hesabından para çekme işlemini kullanıcıdan almak için kullanılan metod
 		boolean end = false;
 		while (!end) {
 			try {
 				System.out.println("\nCurrent Savings Account Balance: " + moneyFormat.format(savingBalance));
 				System.out.print("\nAmount you want to withdraw from Savings Account: ");
 				double amount = input.nextDouble();
-				if ((savingBalance - amount) >= 0 && amount >= 0) {
+				if ((savingBalance - amount) >= 0 && amount >= 0) {// Bakiyeden fazla para çekilmesini engelleme
 					calcSavingWithdraw(amount);
 					System.out.println("\nCurrent Savings Account Balance: " + moneyFormat.format(savingBalance));
 					end = true;
@@ -120,19 +120,19 @@ public class Account {
 				}
 			} catch (InputMismatchException e) {
 				System.out.println("\nInvalid Choice.");//Scanner ile kullanıcıdan veri alınırken, kullanıcının beklenen türde yanlış bir giriş yapması durumunda oluşur.
-				input.next();//kullanıcıdan bir sonraki giriş değerini alır.
+				input.next();// Yanlış veri girişi yapıldığında temizleme
 			}
 		}
 	}
 
-	public void getCheckingDepositInput() {
+	public void getCheckingDepositInput() {// Checking hesabına para yatırma işlemini kullanıcıdan almak için kullanılan metod
 		boolean end = false;
 		while (!end) {
 			try {
 				System.out.println("\nCurrent Checkings Account Balance: " + moneyFormat.format(checkingBalance));
 				System.out.print("\nAmount you want to deposit from Checkings Account: ");
 				double amount = input.nextDouble();
-				if ((checkingBalance + amount) >= 0 && amount >= 0) {
+				if ((checkingBalance + amount) >= 0 && amount >= 0) {// Bakiyeden negatif bir değer eklenmesine engel olur
 					calcCheckingDeposit(amount);
 					System.out.println("\nCurrent Checkings Account Balance: " + moneyFormat.format(checkingBalance));
 					end = true;
@@ -146,7 +146,7 @@ public class Account {
 		}
 	}
 
-	public void getSavingDepositInput() {
+	public void getSavingDepositInput() {// Savings hesabına para yatırma işlemini kullanıcıdan almak için kullanılan metod
 		boolean end = false;
 		while (!end) {
 			try {
@@ -154,7 +154,7 @@ public class Account {
 				System.out.print("\nAmount you want to deposit into your Savings Account: ");
 				double amount = input.nextDouble();
 
-				if ((savingBalance + amount) >= 0 && amount >= 0) {
+				if ((savingBalance + amount) >= 0 && amount >= 0) {// Bakiyeden negatif bir değer eklenmesine engel olur
 					calcSavingDeposit(amount);
 					System.out.println("\nCurrent Savings Account Balance: " + moneyFormat.format(savingBalance));
 					end = true;
@@ -168,11 +168,11 @@ public class Account {
 		}
 	}
 
-	public void getTransferInput(String accType) {
+	public void getTransferInput(String accType) {// Para transferi işlemini almak için kullanılan metod
 		boolean end = false;
 		while (!end) {
 			try {
-				if (accType.equals("Checkings")) {
+				if (accType.equals("Checkings")) {// Checking hesabından para transferi
 					System.out.println("\nSelect an account you wish to tranfers funds to:");
 					System.out.println("1. Savings");
 					System.out.println("2. Exit");
@@ -183,7 +183,7 @@ public class Account {
 						System.out.println("\nCurrent Checkings Account Balance: " + moneyFormat.format(checkingBalance));
 						System.out.print("\nAmount you want to deposit into your Savings Account: ");
 						double amount = input.nextDouble();
-						if ((savingBalance + amount) >= 0 && (checkingBalance - amount) >= 0 && amount >= 0) {
+						if ((savingBalance + amount) >= 0 && (checkingBalance - amount) >= 0 && amount >= 0) {// Transfer için gerekli kontrol
 							calcCheckTransfer(amount);
 							System.out.println("\nCurrent Savings Account Balance: " + moneyFormat.format(savingBalance));
 							System.out.println(
