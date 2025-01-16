@@ -1,7 +1,7 @@
 import java.text.DecimalFormat;//para birimi formati icin cagirdigim kutuphane
 import java.util.InputMismatchException;//kullanicinin dogru veri turu girdiginden emin olmak icin kullandigim kutuphane
 import java.util.Scanner;//veri almak icin kullanilan kutuphane 
-
+ 
 public class Account {
 	
 	private int customerNumber;//musteri numarasi
