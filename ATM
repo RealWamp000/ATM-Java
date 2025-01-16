@@ -1,0 +1,13 @@
+import java.io.IOException; // hata ayiklayici try-catch te kullanilir
+
+public class ATM {
+
+	public static void main(String[] args) throws IOException {//hatayi disari firlatmak icin throws
+		OptionMenu optionMenu = new OptionMenu();
+		introduction(); // Selamlasmak icin cagirdigim metod
+		optionMenu.mainMenu(); //menu seceneklerini cagiriyoruz
+	}
+	public static void introduction() {
+		System.out.println("Welcome to the ATM !");//selamlasma mesaji
+	}
+}
