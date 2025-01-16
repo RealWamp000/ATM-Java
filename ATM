@@ -1,5 +1,5 @@
 import java.io.IOException; // hata ayiklayici try-catch te kullanilir
-
+ 
 public class ATM {
 
 	public static void main(String[] args) throws IOException {//hatayi disari firlatmak icin throws
