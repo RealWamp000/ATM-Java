@@ -1,5 +1,5 @@
 import java.io.IOException;
-import java.text.DecimalFormat;
+import java.text.DecimalFormat; 
 import java.util.HashMap;//anahtar-değer çiftleriyle veri depolamak için kullanılan bir koleksiyon sınıfıdır.
 import java.util.InputMismatchException;
 import java.util.Iterator;// Bir koleksiyondaki öğelere sırasıyla erişmek için kullanılır.
